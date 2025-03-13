@@ -8,7 +8,6 @@ C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaL
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\appsettings.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\MediaLibrary.staticwebassets.runtime.json
-C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\MediaLibrary.staticwebassets.endpoints.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\MediaLibrary.exe
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\MediaLibrary.deps.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\bin\Debug\net8.0\MediaLibrary.runtimeconfig.json
@@ -155,18 +154,15 @@ C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaL
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\scopedcss\bundle\MediaLibrary.styles.css
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets\msbuild.MediaLibrary.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets\msbuild.MediaLibrary.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets\msbuild.build.MediaLibrary.props
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MediaLibrary.props
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MediaLibrary.props
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLib.5DD6B734.Up2Date
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLibrary.dll
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\refint\MediaLibrary.dll
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLibrary.pdb
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLibrary.genruntimeconfig.cache
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\ref\MediaLibrary.dll
-C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLibrary.sourcelink.json
+C:\Users\bokiejp1\source\repos\MediaLibrary\MediaLibrary\obj\Debug\net8.0\MediaLibrary.csproj.CopyComplete
