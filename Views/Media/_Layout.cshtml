@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,11 +22,30 @@
         .card {
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border: none;
+            margin-bottom: 1.5rem;
         }
 
         .card-header {
             background-color: rgba(0, 0, 0, 0.03);
             font-weight: 500;
+        }
+
+        .media-card-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+
+        .media-thumbnail {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .select2-container {
+            width: 100% !important;
         }
     </style>
 </head>
@@ -33,7 +53,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Media Library</a>
+                <a class="navbar-brand" asp-controller="Media" asp-action="Index">Media Library</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -60,7 +80,9 @@
     </header>
 
     <main role="main" class="pb-3">
-        @RenderBody()
+        <div class="container mt-4">
+            @RenderBody()
+        </div>
     </main>
 
     <footer class="border-top footer text-muted mt-4">

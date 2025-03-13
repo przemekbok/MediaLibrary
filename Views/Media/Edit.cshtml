@@ -1,0 +1,71 @@
+﻿@model MediaLibrary.ViewModels.MediaEditViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Edit Media";
+}
+
+<h1>Edit Media</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit" method="post">
+            <div class="card">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="FilePath" />
+                    <input type="hidden" asp-for="ThumbnailPath" />
+                    <input type="hidden" asp-for="FileType" />
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Name</label>
+                        <input asp-for="Name" class="form-control" required />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tags" class="control-label">Tags</label>
+                        <input asp-for="Tags" class="form-control" placeholder="Enter tags separated by commas" />
+                        <small class="form-text text-muted">Example: vacation, family, 2023</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">Preview</div>
+            <div class="card-body text-center">
+                @if (Model.FileType == "image")
+                {
+                    <img src="@Url.Action("File", new { id = Model.Id })" class="img-fluid" alt="@Model.Name" />
+                }
+                else if (Model.FileType == "video")
+                {
+                    <div class="text-center">
+                        <i class="fas fa-film fa-4x text-muted"></i>
+                        <p class="mt-2">Video</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center">
+                        <i class="fas fa-file fa-4x text-muted"></i>
+                        <p class="mt-2">File</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
