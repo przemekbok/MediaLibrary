@@ -1,0 +1,126 @@
+﻿@model MediaLibrary.ViewModels.MediaSearchViewModel
+
+@{
+    ViewData["Title"] = "Media Library";
+}
+
+<div class="container">
+    <h1>Media Library</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form asp-action="Index" method="get" class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="SearchTerm">Search Term</label>
+                                <input asp-for="SearchTerm" class="form-control" placeholder="Search by name or description..." />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="FileType">File Type</label>
+                                <select asp-for="FileType" class="form-control">
+                                    <option value="">All Types</option>
+                                    <option value="image">Images</option>
+                                    <option value="video">Videos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <select asp-for="SelectedTags" class="form-control" multiple>
+                                    @foreach (var tag in ViewBag.AllTags)
+                                    {
+                                        <option value="@tag">@tag</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a asp-action="Create" class="btn btn-success float-right">Upload New Media</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        @if (Model.Results != null && Model.Results.Any())
+        {
+            foreach (var item in Model.Results)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-img-top text-center bg-light" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                            @if (item.FileType == "image")
+                            {
+                                <img src="@Url.Action("File", new { id = item.Id })" class="img-fluid" style="max-height: 100%; max-width: 100%;" alt="@item.Name" />
+                            }
+                            else if (item.FileType == "video")
+                            {
+                                <div class="text-center w-100">
+                                    <i class="fas fa-film fa-4x text-muted"></i>
+                                    <p class="mt-2">Video</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-center w-100">
+                                    <i class="fas fa-file fa-4x text-muted"></i>
+                                    <p class="mt-2">File</p>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text small">@(item.Description?.Length > 100 ? item.Description.Substring(0, 97) + "..." : item.Description)</p>
+                            
+                            <div class="mb-2">
+                                @foreach (var tag in item.Tags)
+                                {
+                                    <span class="badge badge-info mr-1">@tag</span>
+                                }
+                            </div>
+                            
+                            <p class="card-text"><small class="text-muted">Uploaded: @item.UploadDate.ToString("MMM dd, yyyy")</small></p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="btn-group w-100">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Details</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info">
+                    No media items found. <a asp-action="Create">Upload</a> some media to get started.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Initialize multiple select dropdown for tags
+            $('select[multiple]').select2({
+                placeholder: "Select tags...",
+                allowClear: true
+            });
+        });
+    </script>
+}

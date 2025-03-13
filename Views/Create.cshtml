@@ -1,0 +1,78 @@
+﻿@model MediaLibrary.ViewModels.MediaUploadViewModel
+
+@{
+    ViewData["Title"] = "Upload Media";
+}
+
+<div class="container">
+    <h1>Upload Media</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Name</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="MediaFile" class="control-label">Media File</label>
+                            <div class="custom-file">
+                                <input asp-for="MediaFile" class="custom-file-input" required />
+                                <label class="custom-file-label">Choose file...</label>
+                            </div>
+                            <small class="form-text text-muted">Supported file types: Images (JPG, PNG, GIF), Videos (MP4, MOV, AVI)</small>
+                            <span asp-validation-for="MediaFile" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tags" class="control-label">Tags</label>
+                            <input asp-for="Tags" class="form-control" placeholder="Enter tags separated by commas" />
+                            <small class="form-text text-muted">Example: vacation, family, 2023</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Upload Tips</div>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Give your media descriptive names for easier searching</li>
+                        <li>Add tags to help categorize your content</li>
+                        <li>For large files, the upload may take some time</li>
+                        <li>Maximum file size: 500 MB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Show filename when file is selected
+            $('.custom-file-input').on('change', function () {
+                var fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}
